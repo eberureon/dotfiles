@@ -1,0 +1,27 @@
+[user]
+	email = ebel.leon@hotmail.com
+	name = ebelleon
+[core]
+	autocrlf = true
+[help]
+	autocorrect = 9
+[alias]
+	a = add
+	aa = add --all
+	c = commit -m
+	ca = commit --amend
+	d = diff
+	dc = diff --cached
+	f = fetch
+	p = pull
+	pr = pull --rebase
+	r = rebase
+	l = log --graph
+	lg = log --all --graph --pretty='format:%C(auto)%h%d %s %C(dim yellow) [%an] (%ad)%C(reset)' --date=format:'%d.%m.%y %H:%M:%S'
+	co = checkout
+	m = merge
+	s = status --short --branch
+	sb = show-branch
+	st = stash save
+	sp = stash pop
+	aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t= \\2/' | sort

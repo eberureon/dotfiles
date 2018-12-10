@@ -1,4 +1,4 @@
-colorscheme desert
+colorscheme pablo
 set number
 set encoding=utf-8
 

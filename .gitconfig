@@ -8,6 +8,7 @@ s[user]
 [alias]
 	a = add
 	aa = add --all
+  b = branch
 	c = commit -m
 	ca = commit --amend
 	d = diff

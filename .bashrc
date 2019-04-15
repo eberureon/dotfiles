@@ -1,8 +1,36 @@
+## GENERAL
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ip='ip addr'
+alias rm='rm -rf'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias mkdir='mkdir -v'
+alias less='less -FSRXc'
+alias ls='ls -lhF --color=auto'
+alias ll='ls -lahF --color=auto'
+alias up='yay -Syu --devel --timeupdate'
+
+## DOCKER
+alias d='docker-compose up'
+alias dd='docker-compose down'
+alias de='docker exec -it'
+alias dup='docker-compose down & docker-compose pull & docker-compose up -d' # update Docker Image
+alias dcp='docker container prune --filter "until=12h"' # remove all container older than 12 hours
+alias dip='docker image prune -a --filter "until=12h"' # remove all images older than 12 hours
+alias dvp='docker volume prune --filter "until=12h"' # remove all volume older than 12 hours
+alias dvp='docker network prune --filter "until=12h"' # remove all network older than 12 hours
+alias dsp='docker system prune --volumes' # remove everything unused
+
 # Start up SSH session with tmux open
 if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
     tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
 fi
 
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+PS1='[\u@\h \W]\$ '
 
 # get current branch in git repo
 function parse_git_branch() {

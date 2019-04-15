@@ -1,3 +1,2 @@
-# dotfiles
-
+# Dotfiles
 Essential Dotfiles

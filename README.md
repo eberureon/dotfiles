@@ -1,2 +1,2 @@
 # Dotfiles
-Essential Dotfiles
+Some Essential Configuration Files

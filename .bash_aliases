@@ -15,3 +15,6 @@ alias dip='docker image prune -a --filter "until=12h"' # remove all images older
 alias dvp='docker volume prune --filter "until=12h"' # remove all volume older than 12 hours
 alias dvp='docker network prune --filter "until=12h"' # remove all network older than 12 hours
 alias dsp='docker system prune --volumes' # remove everything unused
+
+## ARCH
+alias up='yay -Syu --devel --timeupdate'

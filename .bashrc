@@ -18,7 +18,7 @@ alias d='docker-compose up'
 alias dc='docker-compose'
 alias dd='docker-compose down'
 alias de='docker exec -it'
-alias dup='docker-compose down & docker-compose pull & docker-compose up -d' # update Docker Image
+alias dup='docker-compose down && docker-compose pull && docker-compose up -d' # update Docker Image
 alias dcp='docker container prune --filter "until=12h"' # remove all container older than 12 hours
 alias dip='docker image prune -a --filter "until=12h"' # remove all images older than 12 hours
 alias dnp='docker network prune --filter "until=12h"' # remove all network older than 12 hours

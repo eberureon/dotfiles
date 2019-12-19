@@ -16,6 +16,7 @@
   f = fetch
   p = pull
   pr = pull --rebase
+  pushf = push --force-with-lease
   r = rebase
   l = log --graph
   lg = log --all --graph --pretty='format:%C(auto)%h%d %s %C(dim yellow) [%an] (%ad)%C(reset)' --date=format:'%d.%m.%y %H:%M:%S'

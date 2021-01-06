@@ -4,20 +4,20 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ip='ip addr'
-alias rm='rm -rf'
 alias cp='cp -iv'
-alias delb='echo "🤯 Prune branches" && git remote prune origin && echo "⛔️ Delete branches" && git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d'
 alias mv='mv -iv'
 alias mkdir='mkdir -v'
 alias less='less -FSRXc'
 alias ls='ls -lhF --color=auto'
 alias ll='ls -lahF --color=auto'
-alias up='yay -Syu --devel --timeupdate' # Update system
+alias delb='echo "🤯 Prune branches" && git remote prune origin && echo "⛔️ Delete branches" && git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d'
+
+## ARCH SPECIFIC
+alias sysup='yay -Syu --devel --timeupdate' # Update system
 alias stat='yay -Ps' # Print system statistics
 alias clean='yay -Yc' # Clean unneeded dependencies
 
 ## DOCKER
-alias d='docker-compose up'
 alias dc='docker-compose'
 alias dd='docker-compose down'
 alias de='docker exec -it'
@@ -86,7 +86,7 @@ function parse_git_dirty {
 }
 
 # Colored Shell Prompt with git status
-export PS1="[\[\e[1;32m\]\u\[\e[m\]@\[\e[1;31m\]\h\[\e[m\] \[\e[1;30m\]\W\[\e[m\]]\\$ \[\e[1;36m\]\`parse_git_branch\`\[\e[m\]"
+export PS1="[\[\e[1;33m\]\u\[\e[m\]@\[\e[1;34m\]\h\[\e[m\] \[\e[1;37m\]\W\[\e[m\]]\\$ \[\e[1;36m\]\`parse_git_branch\`\[\e[m\]"
 
 # Enable Colored ls for MacOS
 export CLICOLOR=1

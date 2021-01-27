@@ -1,0 +1,5 @@
+# Mako Notification Service Configuration
+
+font=DejaVu Sans Mono 11
+border-radius=5
+default-timeout=10000

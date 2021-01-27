@@ -1,86 +1,90 @@
 {
     "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 20, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
+    "position": "top", // Waybar at the bottom of your screen
+    "height": 24, // Waybar height
+    // "width": 1366, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
-    "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "sway/language", "tray"],
-    // Modules configuration
+    "modules-left": [
+      "sway/workspaces",
+      "sway/mode",
+      "custom/spotify"
+    ],
+    "modules-center": ["sway/window"],
+    "modules-right": [
+      "pulseaudio",
+      "network",
+      "cpu",
+      "memory",
+      "temperature",
+      "clock#date",
+      "clock#time",
+      "tray"
+    ],
     "sway/workspaces": {
         "disable-scroll": true,
-        "all-outputs": true,
+        "all-outputs": false,
         "format": "{icon}",
         "format-icons": {
-            "urgent": ""
+            "urgent": "",
         }
     },
     "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>",
-        "pango_markup": true
+        "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
         // "icon-size": 21,
         "spacing": 10
     },
-    "clock": {
-        "format": "{:%a, %d. %b. %Y %H:%M:%S}",
-        "format-alt": "{%a, %d. %b. %Y}",
+    "clock#time": {
+        "format": "{:%H:%M:%S}",
+        "tooltip": false,
         "interval": 1
     },
+    "clock#date": {
+      "interval": 10,
+      "format": "{:%e %b %Y}",
+      "tooltip-format": "{:%A %e %B %Y}"
+    },
     "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
+        "format": "{usage}% "
     },
     "memory": {
-        "format": "{}% "
-    },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{temperatureC}°C {icon}",
-        "format-critical": " {temperatureC}°C",
-        "format-icons": ["", "", ""]
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", ""]
+        "format": "{}% "
     },
     "network": {
-        "format-wifi": " {essid} ({signalStrength}%)",
+        // "interface": "wlp2s0", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-disconnected": "Disconnected ⚠"
+    },
+    "temperature": {
+      "critical-threshold": 80,
+      "format": "{temperatureC}°C {icon}",
+      "format-critical": " {temperatureC}°C",
+      "format-icons": ["", "", ""]
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        //"scroll-step": 1,
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
+            "headphones": "",
+            "handsfree": "",
             "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": ["", ""]
         },
         "on-click": "pavucontrol"
     },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
+    "custom/spotify": {
+        "format": " {}",
         "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+        "interval": 30, // Remove this if your script is endless and write in loop
+        "exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null", // Script in resources folder
+        "exec-if": "pgrep spotify"
     }
 }
+

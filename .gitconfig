@@ -11,8 +11,8 @@
   b = branch
   c = commit -m
   ca = commit --amend
-  d = diff
-  dc = diff --cached
+  d = diff --color-words
+  dc = diff --cached --color-words
   f = fetch
   p = pull
   pr = pull --rebase

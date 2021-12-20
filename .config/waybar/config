@@ -15,6 +15,7 @@
       "network",
       "cpu",
       "memory",
+      "battery",
       "temperature",
       "clock#date",
       "clock#time",
@@ -34,6 +35,19 @@
     "tray": {
         // "icon-size": 21,
         "spacing": 10
+    },
+    "battery": {
+      // Doc: https://www.mankier.com/5/waybar-battery
+      // as in /sys/class/power_supply/ instead of auto detect
+      "bat": "BAT2",
+      "interval": 60,
+      "states": {
+          "warning": 30,
+          "critical": 15
+      },
+      "format": "{capacity}% {icon}",
+      "format-icons": ["", "", "", "", ""],
+      "max-length": 25
     },
     "clock#time": {
         "format": "{:%H:%M:%S}",

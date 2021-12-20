@@ -1,3 +1,4 @@
+// IMPORTANT: to display the icons otf-font-awesome must be installed
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar at the bottom of your screen

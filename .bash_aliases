@@ -13,6 +13,7 @@ alias pbpaste='xclip -selection clipboard -o'
 
 ## ARCH SPECIFIC
 alias sysup='yay -Syu --devel --timeupdate' # Update system
+alias keyringupdate='yay -Sy archlinux-keyring'
 alias stat='yay -Ps' # Print system statistics
 alias clean='yay -Yc' # Clean unneeded dependencies
 

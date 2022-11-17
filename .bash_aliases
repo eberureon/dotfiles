@@ -1,4 +1,4 @@
-i## GENERAL
+## GENERAL
 alias ..='cd ..'
 alias ...='cd ../..'
 alias cp='cp -iv'

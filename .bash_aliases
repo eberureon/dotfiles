@@ -27,3 +27,4 @@ alias dip='docker image prune -a --filter "until=12h"' # remove all images older
 alias dnp='docker network prune --filter "until=12h"' # remove all network older than 12 hours
 alias dvp='docker volume prune' # remove all volume older than 12 hours
 alias dsp='docker system prune --volumes' # remove everything unused
+alias dbp='docker builder prune' # remove build cache

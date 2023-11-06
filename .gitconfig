@@ -1,5 +1,5 @@
 [user]
-  email = 2-ebelleon@users.noreply.gitlab.ebelleon.de
+  email = some_email@github.com
   name = ebelleon
 [core]
   autocrlf = true

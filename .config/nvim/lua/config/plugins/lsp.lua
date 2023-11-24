@@ -13,15 +13,12 @@ return {
     -- Additional lua configuration, makes nvim stuff amazing!
     'folke/neodev.nvim',
   },
-  -- [[ Configure LSP ]]
-  --  This function gets run when an LSP connects to a particular buffer.
+
   config = function ()
+    -- [[ Configure LSP ]]
+    --  This function gets run when an LSP connects to a particular buffer.
     local on_attach = function(_, bufnr)
-      -- NOTE: Remember that lua is a real programming language, and as such it is possible
-      -- to define small helper and utility functions so you don't have to repeat yourself
-      -- many times.
-      --
-      -- In this case, we create a function that lets us more easily define mappings specific
+      -- Function that lets us more easily define mappings specific
       -- for LSP related items. It sets the mode, buffer and description for us each time.
       local nmap = function(keys, func, desc)
         if desc then
@@ -30,16 +27,17 @@ return {
 
         vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
       end
+      local builtin = require('telescope.builtin')
 
       nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
       nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-      nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-      nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-      nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-      nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-      nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-      nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+      nmap('gd', builtin.lsp_definitions, '[G]oto [D]efinition')
+      nmap('gr', builtin.lsp_references, '[G]oto [R]eferences')
+      nmap('gI', builtin.lsp_implementations, '[G]oto [I]mplementation')
+      nmap('<leader>D', builtin.lsp_type_definitions, 'Type [D]efinition')
+      nmap('<leader>ds', builtin.lsp_document_symbols, '[D]ocument [S]ymbols')
+      nmap('<leader>ws', builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
       -- See `:help K` for why this keymap
       nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -65,27 +63,44 @@ return {
     require('mason-lspconfig').setup()
 
     -- Enable the following language servers
-    --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
     --
     --  Add any additional override configuration in the following tables. They will be passed to
     --  the `settings` field of the server config. You must look up that documentation yourself.
     --
-    --  If you want to override the default filetypes that your language server will attach to you can
-    --  define the property 'filetypes' to the map in question.
+    --  see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    --  for more information
     local servers = {
-      -- clangd = {},
-      -- gopls = {},
-      -- pyright = {},
-      -- rust_analyzer = {},
-      -- tsserver = {},
-      -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
+      cssls = {},
+      docker_compose_language_service = {},
+      dockerls = {},
+      graphql = {},
+      html = {},
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },
           telemetry = { enable = false },
         },
       },
+      pylsp = {},
+      sqlls = {},
+      tailwindcss = {
+        settings = {
+          tailwindCSS = {
+            classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
+            lint = {
+              cssConflict = "warning",
+              invalidApply = "error",
+              invalidConfigPath = "error",
+              invalidScreen = "error",
+              invalidTailwindDirective = "error",
+              invalidVariant = "error",
+              recommendedVariantOrder = "warning"
+            },
+            validate = true
+          },
+        }
+      },
+      tsserver = {},
     }
 
     -- Setup neovim lua configuration

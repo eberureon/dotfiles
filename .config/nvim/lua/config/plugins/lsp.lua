@@ -100,7 +100,7 @@ return {
           },
         }
       },
-      tsserver = {},
+      vtsls = {},
     }
 
     -- Setup neovim lua configuration
@@ -129,3 +129,4 @@ return {
     }
   end
 }
+

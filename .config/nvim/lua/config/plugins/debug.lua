@@ -1,7 +1,10 @@
+-- debug.lua
 -- Shows how to use the DAP plugin to debug your code.
 
 return {
+  -- NOTE: Yes, you can install new plugins here!
   'mfussenegger/nvim-dap',
+  -- NOTE: And you can specify dependencies as well
   dependencies = {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
@@ -17,7 +20,6 @@ return {
       lazy = true,
       build = 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out',
     },
-    -- json5 parser for dap.exp.vscode, as .vscode/launch.json mostly ins't a valid json
     {
       'Joakker/lua-json5',
       build = './install.sh'

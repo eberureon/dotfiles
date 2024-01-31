@@ -27,3 +27,5 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+-- Git keymaps
+vim.keymap.set('n', '<leader>gw', ':lua require("telescope").extensions.git_worktree.git_worktrees()<cr>', { desc = 'Change [G]it [W]orktree' })

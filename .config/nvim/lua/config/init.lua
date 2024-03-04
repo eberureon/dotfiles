@@ -37,7 +37,6 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'github/copilot.vim',
-  'ThePrimeagen/git-worktree.nvim',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',

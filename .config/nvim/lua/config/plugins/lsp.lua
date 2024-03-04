@@ -14,7 +14,7 @@ return {
     'folke/neodev.nvim',
   },
 
-  config = function ()
+  config = function()
     -- [[ Configure LSP ]]
     --  This function gets run when an LSP connects to a particular buffer.
     local on_attach = function(_, bufnr)
@@ -55,8 +55,13 @@ return {
 
       -- Create a command `:Format` local to the LSP buffer
       vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-        vim.lsp.buf.format()
+        vim.lsp.buf.format { async = true }
       end, { desc = 'Format current buffer with LSP' })
+
+      -- Disable Formatting from vtsls
+      local vtsls = require('vtsls')
+      vtsls.server_capabilities.documentFormattingProvider = false
+      vtsls.server_capabilities.documentRangeFormattingProvider = false
     end
 
     -- mason-lspconfig requires that these setup functions are called in this order
@@ -72,6 +77,7 @@ return {
     --  see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     --  for more information
     local servers = {
+      biome = {},
       cssls = {},
       docker_compose_language_service = {},
       dockerls = {},
@@ -131,4 +137,3 @@ return {
     }
   end
 }
-

@@ -7,18 +7,17 @@ return {
     local null_ls = require('null-ls')
     null_ls.setup({
       sources = {
-        null_ls.builtins.formatting.biome,
-        -- or if you like to live dangerously like me:
-        -- null_ls.builtins.formatting.biome.with({
-        --   args = {
-        --     'check',
-        --     '--apply-unsafe',
-        --     '--formatter-enabled=true',
-        --     '--organize-imports-enabled=true',
-        --     '--skip-errors',
-        --     '$FILENAME',
-        --   },
-        -- }),
+        null_ls.builtins.formatting.rustywind,
+        -- null_ls.builtins.formatting.biome,
+        null_ls.builtins.formatting.biome.with({
+          args = {
+            'check',
+            '--apply',
+        --     '--organize-imports-enabled=false',
+            '--skip-errors',
+            '$FILENAME',
+          },
+        }),
         null_ls.builtins.code_actions.gitsigns,
       },
       on_attach = function(client, bufnr)

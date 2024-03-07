@@ -133,6 +133,9 @@ return {
         prompt_title = 'Live Grep in Open Files',
       }
     end
+
+    vim.api.nvim_create_user_command('LiveGrepWithArgs', ':lua require("telescope").extensions.live_grep_args.live_grep_args()', {})
+
     vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
     vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
     vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
@@ -141,8 +144,8 @@ return {
     vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-    vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-    vim.keymap.set('n', '<leader>sG', ':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>', { desc = '[S]earch by [G]rep with args' })
+    vim.keymap.set('n', '<leader>sg', ':LiveGrepWithArgs<cr>', { desc = '[S]earch by [G]rep with Args' })
+    vim.keymap.set('n', '<leader>sG', builtin.live_grep, { desc = '[S]earch by [G]rep' })
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>si', ':Telescope import<cr>', { desc = '[S]earch [I]mports' })

@@ -18,6 +18,15 @@ return {
       end,
     },
     {
+      'nvim-telescope/telescope-live-grep-args.nvim' ,
+      -- This will not install any breaking changes.
+      -- For major updates, this must be adjusted manually.
+      version = '^1.0.0',
+      config = function ()
+          require('telescope').load_extension('live_grep_args')
+      end
+    },
+    {
       'piersolenski/telescope-import.nvim',
       config = function ()
         require('telescope').load_extension('import')
@@ -45,7 +54,7 @@ return {
       pickers = {
         find_files = {
           -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+          find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
         },
       },
       extensions = {
@@ -58,9 +67,9 @@ return {
               -- The regex pattern for the import statement
               regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
               -- The Vim filetypes
-              filetypes = { "typescript", "typescriptreact", "javascript", "react" },
+              filetypes = { 'typescript', 'typescriptreact', 'javascript', 'react' },
               -- The filetypes that ripgrep supports (find these via `rg --type-list`)
-              extensions = { "js", "ts", "sass", "svg", "lua" },
+              extensions = { 'js', 'ts', 'sass', 'svg', 'lua' },
             },
           },
         },
@@ -78,17 +87,17 @@ return {
       local current_dir
       local cwd = vim.fn.getcwd()
       -- If the buffer is not associated with a file, return nil
-      if current_file == "" then
+      if current_file == '' then
         current_dir = cwd
       else
         -- Extract the directory from the current file's path
-        current_dir = vim.fn.fnamemodify(current_file, ":h")
+        current_dir = vim.fn.fnamemodify(current_file, ':h')
       end
 
       -- Find the Git root directory from the current file's path
-      local git_root = vim.fn.systemlist("git -C " .. vim.fn.escape(current_dir, " ") .. " rev-parse --show-toplevel")[1]
+      local git_root = vim.fn.systemlist('git -C ' .. vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')[1]
       if vim.v.shell_error ~= 0 then
-        print("Not a git repository. Searching on current working directory")
+        print('Not a git repository. Searching on current working directory')
         return cwd
       end
       return git_root
@@ -127,12 +136,13 @@ return {
     vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
     vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
     vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
-    vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'Search [G]it [F]iles' })
+    vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'Search changed [G]it [F]iles' })
+    vim.keymap.set('n', '<leader>gg', ':LiveGrepGitRoot<cr>', { desc = '[S]earch [G]it by [G]rep' })
     vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
     vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-    vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
+    vim.keymap.set('n', '<leader>sG', ':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>', { desc = '[S]earch by [G]rep with args' })
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>si', ':Telescope import<cr>', { desc = '[S]earch [I]mports' })

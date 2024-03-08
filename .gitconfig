@@ -24,6 +24,6 @@
   m = merge
   s = status --short --branch
   sb = show-branch
-  st = stash save
+  st = stash push
   sp = stash pop
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t= \\2/' | sort

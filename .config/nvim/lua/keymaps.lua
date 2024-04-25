@@ -32,4 +32,5 @@ map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnos
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- Git keymaps
-map('n', '<leader>gw', ':lua require("telescope").extensions.git_worktree.git_worktrees()<cr>', { desc = 'Change [G]it [W]orktree' })
+map('n', '<leader>gw', ':lua require("telescope").extensions.git_worktree.git_worktrees()<cr>',
+  { desc = 'Change [G]it [W]orktree' })

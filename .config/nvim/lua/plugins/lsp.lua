@@ -27,7 +27,7 @@ return {
 
         vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
       end
-      local builtin = require('telescope.builtin')
+      local builtin = require 'telescope.builtin'
 
       nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
       nmap('<leader>ca', function()
@@ -43,7 +43,7 @@ return {
 
       -- See `:help K` for why this keymap
       nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-      nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+      nmap('<leader>k', vim.lsp.buf.signature_help, 'Signature Documentation')
 
       -- Lesser used LSP functionality
       nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -59,9 +59,11 @@ return {
       end, { desc = 'Format current buffer with LSP' })
 
       -- Disable Formatting from vtsls
-      local vtsls = require('vtsls')
-      vtsls.server_capabilities.documentFormattingProvider = false
-      vtsls.server_capabilities.documentRangeFormattingProvider = false
+      local tsserver = require 'tsserver'
+      -- vtsls.server_capabilities.documentRangeFormattingProvider = false
+      -- vtsls.server_capabilities.documentFormattingProvider = false
+      tsserver.server_capabilities.documentFormattingProvider = false
+      tsserver.server_capabilities.documentRangeFormattingProvider = false
     end
 
     -- mason-lspconfig requires that these setup functions are called in this order
@@ -94,21 +96,22 @@ return {
       tailwindcss = {
         settings = {
           tailwindCSS = {
-            classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
+            classAttributes = { 'class', 'className', 'class:list', 'classList', 'ngClass' },
             lint = {
-              cssConflict = "warning",
-              invalidApply = "error",
-              invalidConfigPath = "error",
-              invalidScreen = "error",
-              invalidTailwindDirective = "error",
-              invalidVariant = "error",
-              recommendedVariantOrder = "warning"
+              cssConflict = 'warning',
+              invalidApply = 'error',
+              invalidConfigPath = 'error',
+              invalidScreen = 'error',
+              invalidTailwindDirective = 'error',
+              invalidVariant = 'error',
+              recommendedVariantOrder = 'warning',
             },
-            validate = true
+            validate = true,
           },
-        }
+        },
       },
-      vtsls = {},
+      tsserver = {},
+      -- vtsls = {},
     }
 
     -- Setup neovim lua configuration
@@ -135,5 +138,5 @@ return {
         }
       end,
     }
-  end
+  end,
 }

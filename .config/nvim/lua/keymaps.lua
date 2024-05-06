@@ -37,9 +37,10 @@ map({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'Delete without loosing current
 map('n', '<leader>rs', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
   { desc = '[R]eplace word from current Cursor' })
 
--- next greatest remap ever : asbjornHaland
+-- copy and paste to clipboard by: asbjornHaland
 map({ 'n', 'v' }, '<leader>y', [["+y]], { desc = 'Copy to system clipboard' })
 map('n', '<leader>Y', [["+Y]], { desc = 'Copy current Line to system clipboard' })
+map({ 'n', 'v' }, '<leader>P', [["+p]], { desc = 'Paste from system clipboard' })
 
 -- Diagnostic keymaps
 map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })

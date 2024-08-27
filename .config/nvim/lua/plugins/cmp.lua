@@ -12,6 +12,10 @@ return {
 
     -- Adds a number of user-friendly snippets
     'rafamadriz/friendly-snippets',
+
+    -- Adds Tailwind functionality
+    'luckasRanarison/tailwind-tools.nvim',
+    'onsails/lspkind-nvim',
   },
 
   config = function()
@@ -29,7 +33,7 @@ return {
         end,
       },
       completion = {
-        completeopt = 'menu,menuone,noinsert'
+        completeopt = 'menu,menuone,noinsert',
       },
       mapping = cmp.mapping.preset.insert {
         ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -66,5 +70,14 @@ return {
         { name = 'path' },
       },
     }
-  end
+  end,
+  opts = function()
+    return {
+      formatting = {
+        format = require('lspkind').cmp_format {
+          before = require('tailwind-tools.cmp').lspkind_format,
+        },
+      },
+    }
+  end,
 }

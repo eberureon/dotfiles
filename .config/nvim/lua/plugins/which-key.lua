@@ -3,16 +3,27 @@ return {
   'folke/which-key.nvim',
   opts = {},
 
-  config = function ()
+  config = function()
     -- document existing key chains
-    require('which-key').register {
-      ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-      ['<leader>d'] = { name = '[D]ocument / [D]ebug', _ = 'which_key_ignore' },
-      ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-      ['<leader>h'] = { name = 'More git', _ = 'which_key_ignore' },
-      ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-      ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-      ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+    local wk = require 'which-key'
+
+    wk.add {
+      { '<leader>c',   group = 'Code' },
+      { '<leader>c_',  hidden = true },
+      { '<leader>d',   group = 'Document / Debug' },
+      { '<leader>d_',  hidden = true },
+      { '<leader>g',   group = 'Git' },
+      { '<leader>g_',  hidden = true },
+      { '<leader>gt',  group = '[G]it Toggle' },
+      { '<leader>gt_', hidden = true },
+      -- { '<leader>h',  group = 'More [G]it' },
+      -- { '<leader>h_', hidden = true },
+      { '<leader>r',   group = 'Rename' },
+      { '<leader>r_',  hidden = true },
+      { '<leader>s',   group = 'Search' },
+      { '<leader>s_',  hidden = true },
+      { '<leader>w',   group = 'Workspace' },
+      { '<leader>w_',  hidden = true },
     }
-  end
+  end,
 }

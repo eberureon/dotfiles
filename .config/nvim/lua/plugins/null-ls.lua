@@ -9,16 +9,16 @@ return {
       sources = {
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.rustywind,
-        -- null_ls.builtins.formatting.biome,
-        null_ls.builtins.formatting.biome.with {
-          args = {
-            'check',
-            '--apply-unsafe',
-            '--organize-imports-enabled=true',
-            '--skip-errors',
-            '$FILENAME',
-          },
-        },
+        null_ls.builtins.formatting.biome,
+        -- null_ls.builtins.formatting.biome.with {
+        --   args = {
+        --     'check',
+        --     '--apply-unsafe',
+        --     '--organize-imports-enabled=true',
+        --     '--skip-errors',
+        --     '$FILENAME',
+        --   },
+        -- },
         null_ls.builtins.code_actions.gitsigns,
       },
       on_attach = function(client, bufnr)

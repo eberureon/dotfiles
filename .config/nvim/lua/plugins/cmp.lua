@@ -12,10 +12,6 @@ return {
 
     -- Adds a number of user-friendly snippets
     'rafamadriz/friendly-snippets',
-
-    -- Adds Tailwind functionality
-    'luckasRanarison/tailwind-tools.nvim',
-    'onsails/lspkind-nvim',
   },
 
   config = function()
@@ -23,6 +19,7 @@ return {
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
+    local highlightColors = require 'nvim-highlight-colors'
     require('luasnip.loaders.from_vscode').lazy_load()
     luasnip.config.setup {}
 
@@ -64,19 +61,13 @@ return {
           end
         end, { 'i', 's' }),
       },
+      formatting = {
+        format = highlightColors.format,
+      },
       sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
-      },
-    }
-  end,
-  opts = function()
-    return {
-      formatting = {
-        format = require('lspkind').cmp_format {
-          before = require('tailwind-tools.cmp').lspkind_format,
-        },
       },
     }
   end,

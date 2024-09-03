@@ -31,7 +31,7 @@ return {
 
       nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
       nmap('<leader>ca', function()
-        vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source' } } }
+        vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source', 'diasnostic' } } }
       end, '[C]ode [A]ction')
 
       nmap('gd', builtin.lsp_definitions, '[G]oto [D]efinition')
@@ -58,12 +58,13 @@ return {
         vim.lsp.buf.format { async = true }
       end, { desc = 'Format current buffer with LSP' })
 
-      -- Disable Formatting from vtsls
-      local tsserver = require 'tsserver'
+      -- Formatting
+      -- local vtsls = require 'vstsls'
       -- vtsls.server_capabilities.documentRangeFormattingProvider = false
       -- vtsls.server_capabilities.documentFormattingProvider = false
-      tsserver.server_capabilities.documentFormattingProvider = false
-      tsserver.server_capabilities.documentRangeFormattingProvider = false
+      -- local tsserver = require 'tsserver'
+      -- tsserver.server_capabilities.documentFormattingProvider = false
+      -- tsserver.server_capabilities.documentRangeFormattingProvider = false
     end
 
     -- mason-lspconfig requires that these setup functions are called in this order
@@ -110,8 +111,8 @@ return {
           },
         },
       },
-      tsserver = {},
-      -- vtsls = {},
+      -- tsserver = {},
+      vtsls = {},
     }
 
     -- Setup neovim lua configuration

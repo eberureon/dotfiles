@@ -15,8 +15,8 @@ map('n', '<leader>ex', vim.cmd.Ex, { desc = 'Exit to netrw' })
 -- Go to next / previous item in quickfixlist / locationlist
 map('n', '<C-j>', '<cmd>cnext<CR>zz')
 map('n', '<C-k>', '<cmd>cprev<CR>zz')
-map('n', '<leader>k', '<cmd>lnext<CR>zz')
-map('n', '<leader>j', '<cmd>lprev<CR>zz')
+map('n', '<leader>k', '<cmd>lnext<CR>zz', { desc = 'Goto next item in quickfixlist / locationlist' })
+map('n', '<leader>j', '<cmd>lprev<CR>zz', { desc = 'Goto previos item in quickfixlist / locationlist' })
 
 -- Remap for dealing with word wrap
 map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })

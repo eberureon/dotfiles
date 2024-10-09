@@ -7,9 +7,27 @@ return {
     local null_ls = require 'null-ls'
     null_ls.setup {
       sources = {
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.rustywind,
-        null_ls.builtins.formatting.biome,
+        null_ls.builtins.formatting.stylua.with {
+          filetypes = { 'lua' },
+        },
+        null_ls.builtins.formatting.rustywind.with {
+          filetypes = { 'typescriptreact', 'javascriptreact' },
+        },
+        null_ls.builtins.formatting.biome.with {
+          filetypes = { 'typescriptreact', 'javascriptreact', 'typescript', 'javascript', 'json' },
+          condition = function(utils)
+            return utils.root_has_file { 'biome.json' }
+          end,
+        },
+        null_ls.builtins.formatting.prettier.with {
+          filetypes = { 'typescriptreact', 'javascriptreact', 'typescript', 'javascript', 'json' },
+          condition = function(utils)
+            return utils.root_has_file { '.prettierrc' }
+          end,
+        },
+        null_ls.builtins.formatting.black.with {
+          filetypes = { 'python' },
+        },
         -- null_ls.builtins.formatting.biome.with {
         --   args = {
         --     'check',

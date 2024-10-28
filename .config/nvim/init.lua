@@ -5,6 +5,11 @@ require 'options'
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
 
+-- appropriately highlight codefences returned from deno
+vim.g.markdown_fenced_languages = {
+  'ts=typescript',
+}
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info

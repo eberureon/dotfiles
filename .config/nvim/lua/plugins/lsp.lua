@@ -62,9 +62,9 @@ return {
       -- local vtsls = require 'vstsls'
       -- vtsls.server_capabilities.documentRangeFormattingProvider = false
       -- vtsls.server_capabilities.documentFormattingProvider = false
-      -- local tsserver = require 'tsserver'
-      -- tsserver.server_capabilities.documentFormattingProvider = false
-      -- tsserver.server_capabilities.documentRangeFormattingProvider = false
+      -- local ts_ls = require 'ts_ls'
+      -- ts_ls.server_capabilities.documentFormattingProvider = false
+      -- ts_ls.server_capabilities.documentRangeFormattingProvider = false
     end
 
     -- mason-lspconfig requires that these setup functions are called in this order
@@ -111,12 +111,14 @@ return {
           },
         },
       },
-      -- tsserver = {},
-      vtsls = {},
+      denols = {
+        root_dir = require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc'),
+      },
+      ts_ls = {
+        root_dir = require('lspconfig').util.root_pattern 'package.json',
+        single_file_support = false,
+      },
     }
-
-    -- Setup neovim lua configuration
-    require('neodev').setup()
 
     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -134,10 +136,13 @@ return {
         require('lspconfig')[server_name].setup {
           capabilities = capabilities,
           on_attach = on_attach,
-          settings = servers[server_name],
+          settings = (servers[server_name] or {}).settings,
           filetypes = (servers[server_name] or {}).filetypes,
         }
       end,
     }
+
+    -- Setup neovim lua configuration
+    require('neodev').setup()
   end,
 }

@@ -111,13 +111,10 @@ return {
           },
         },
       },
-      denols = {
-        root_dir = require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc'),
-      },
-      ts_ls = {
-        root_dir = require('lspconfig').util.root_pattern 'package.json',
-        single_file_support = false,
-      },
+      -- denols = {
+      --   root_dir = require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc'),
+      -- },
+      ts_ls = {},
     }
 
     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers

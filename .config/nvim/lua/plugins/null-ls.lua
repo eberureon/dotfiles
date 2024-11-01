@@ -38,6 +38,13 @@ return {
         --   },
         -- },
         null_ls.builtins.code_actions.gitsigns,
+        -- Java
+        null_ls.builtins.diagnostics.checkstyle.with {
+          extra_args = { '-c', '/google_checks.xml' }, -- or "/sun_checks.xml" or path to self written rules
+        },
+        null_ls.builtins.formatting.google_java_format.with {
+          filetypes = { 'java' },
+        },
       },
       on_attach = function(client, bufnr)
         -- auto formatting on save

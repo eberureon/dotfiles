@@ -1,9 +1,9 @@
 return {
-  "nvim-java/nvim-java",
+  'nvim-java/nvim-java',
   config = false,
   dependencies = {
     {
-      "neovim/nvim-lspconfig",
+      'neovim/nvim-lspconfig',
       opts = {
         servers = {
           -- Your JDTLS configuration goes here
@@ -25,7 +25,8 @@ return {
         setup = {
           jdtls = function()
             -- Your nvim-java configuration goes here
-            require("java").setup({
+            require('java').setup {
+              --  list of file that exists in root of the project
               -- root_markers = {
               --   "settings.gradle",
               --   "settings.gradle.kts",
@@ -35,8 +36,8 @@ return {
               --   "gradlew",
               --   "build.gradle",
               --   "build.gradle.kts",
-              -- },
-            })
+              -- }
+            }
           end,
         },
       },

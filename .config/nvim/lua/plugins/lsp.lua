@@ -115,6 +115,7 @@ return {
       --   root_dir = require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc'),
       -- },
       ts_ls = {},
+      jdtls = {},
     }
 
     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers

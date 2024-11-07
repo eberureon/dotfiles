@@ -6,9 +6,9 @@ require 'options'
 -- vim.g.loaded_netrwPlugin = 1
 
 -- appropriately highlight codefences returned from deno
-vim.g.markdown_fenced_languages = {
-  'ts=typescript',
-}
+-- vim.g.markdown_fenced_languages = {
+--   'ts=typescript',
+-- }
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
@@ -68,7 +68,7 @@ require('lazy').setup({
   --    up-to-date with whatever is in the kickstart repo.
   --    Uncomment the following line and add your plugins to `lua/plugins/*.lua` to get going.
   --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
+  --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   { import = 'plugins' },
 }, {})
 

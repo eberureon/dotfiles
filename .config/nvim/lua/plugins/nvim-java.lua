@@ -14,7 +14,8 @@ return {
             --       runtimes = {
             --         {
             --           name = "JavaSE-23",
-            --           path = "/usr/local/sdkman/candidates/java/23-tem",
+            --           path = "/opt/homebrew/Cellar/openjdk/23.0.1",
+            --           default = true,
             --         },
             --       },
             --     },

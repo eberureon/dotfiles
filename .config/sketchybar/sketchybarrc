@@ -1,0 +1,7 @@
+#!/usr/bin/env lua
+
+-- Load the sketchybar-package and prepare the helper binaries
+-- Install sketchybar deops
+-- https://github.com/FelixKratz/dotfiles/blob/master/install_sketchybar.sh
+require("helpers")
+require("init")

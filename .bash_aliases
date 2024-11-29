@@ -4,10 +4,12 @@ alias ...='cd ../..'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias mkdir='mkdir -v'
+alias free='free -h'
+alias du='du -h'
 alias less='less -FSRXc'
 alias ls='ls -lhF --color=auto'
 alias ll='ls -lahF --color=auto'
-alias delb='echo "🤯 Prune branches" && git remote prune origin && echo "⛔️ Delete branches" && git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d'
+alias wget="wget -c --user-agent 'noleak'"
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
@@ -16,6 +18,9 @@ alias sysup='yay -Syu --devel --timeupdate' # Update system
 alias keyringupdate='yay -Sy archlinux-keyring'
 alias stat='yay -Ps' # Print system statistics
 alias clean='yay -Yc' # Clean unneeded dependencies
+
+# GIT SPECIFIC
+alias delb='echo "🤯 Prune branches" && git remote prune origin && echo "⛔️ Delete branches" && git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d'
 
 ## DOCKER
 alias dc='docker-compose'

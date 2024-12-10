@@ -24,12 +24,12 @@ alias delb='echo "🤯 Prune branches" && git remote prune origin && echo "⛔�
 
 ## DOCKER
 alias dc='docker-compose'
-alias dd='docker-compose down'
-alias de='docker exec -it'
-alias dup='docker-compose down && docker-compose pull && docker-compose up -d' # update Docker Image
-alias dcp='docker container prune --filter "until=12h"' # remove all container older than 12 hours
-alias dip='docker image prune -a --filter "until=12h"' # remove all images older than 12 hours
-alias dnp='docker network prune --filter "until=12h"' # remove all network older than 12 hours
-alias dvp='docker volume prune' # remove all volume older than 12 hours
-alias dsp='docker system prune --volumes' # remove everything unused
-alias dbp='docker builder prune' # remove build cache
+alias dcd='docker-compose down'
+alias dce='docker exec -it'
+alias dcup='docker-compose down && docker-compose pull && docker-compose up -d' # update Docker Image
+alias dccp='docker container prune --filter "until=12h"' # remove all container older than 12 hours
+alias dcip='docker image prune -a --filter "until=12h"' # remove all images older than 12 hours
+alias dcnp='docker network prune --filter "until=12h"' # remove all network older than 12 hours
+alias dcvp='docker volume prune' # remove all volume older than 12 hours
+alias dcsp='docker system prune --volumes' # remove everything unused
+alias dcbp='docker builder prune' # remove build cache

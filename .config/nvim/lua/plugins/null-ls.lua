@@ -4,31 +4,31 @@ return {
   'nvimtools/none-ls.nvim',
   dependencies = 'nvim-lua/plenary.nvim',
   config = function()
-    local null_ls = require 'null-ls'
-    null_ls.setup {
+    local nls = require 'null-ls'
+    nls.setup {
       sources = {
-        null_ls.builtins.formatting.stylua.with {
+        nls.builtins.formatting.stylua.with {
           filetypes = { 'lua' },
         },
-        null_ls.builtins.formatting.rustywind.with {
+        nls.builtins.formatting.rustywind.with {
           filetypes = { 'typescriptreact', 'javascriptreact' },
         },
-        null_ls.builtins.formatting.biome.with {
+        nls.builtins.formatting.biome.with {
           filetypes = { 'typescriptreact', 'javascriptreact', 'typescript', 'javascript', 'json' },
           condition = function(utils)
             return utils.root_has_file { 'biome.json' }
           end,
         },
-        null_ls.builtins.formatting.prettier.with {
+        nls.builtins.formatting.prettier.with {
           filetypes = { 'typescriptreact', 'javascriptreact', 'typescript', 'javascript', 'json' },
           condition = function(utils)
             return utils.root_has_file { '.prettierrc' }
           end,
         },
-        null_ls.builtins.formatting.black.with {
+        nls.builtins.formatting.black.with {
           filetypes = { 'python' },
         },
-        -- null_ls.builtins.formatting.biome.with {
+        -- nls.builtins.formatting.biome.with {
         --   args = {
         --     'check',
         --     '--apply-unsafe',
@@ -37,12 +37,12 @@ return {
         --     '$FILENAME',
         --   },
         -- },
-        null_ls.builtins.code_actions.gitsigns,
+        nls.builtins.code_actions.gitsigns,
         -- Java
-        null_ls.builtins.diagnostics.checkstyle.with {
+        nls.builtins.diagnostics.checkstyle.with {
           extra_args = { '-c', '/google_checks.xml' }, -- or "/sun_checks.xml" or path to self written rules
         },
-        null_ls.builtins.formatting.google_java_format.with {
+        nls.builtins.formatting.google_java_format.with {
           filetypes = { 'java' },
         },
       },

@@ -197,7 +197,7 @@ wifi:subscribe({ "wifi_change", "system_woke" }, function(env)
 end)
 
 local function hide_details()
-  wifi_bracketgset({ popup = { drawing = false } })
+  wifi_bracket:set({ popup = { drawing = false } })
 end
 
 local function toggle_details()

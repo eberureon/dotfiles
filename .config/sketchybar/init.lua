@@ -1,5 +1,5 @@
 -- Require the sketchybar module
-sbar = require("sketchybar")
+local sbar = require("sketchybar")
 
 -- Set the bar name, if you are using another bar instance than sketchybar
 -- sbar.set_bar_name("bottom_bar")

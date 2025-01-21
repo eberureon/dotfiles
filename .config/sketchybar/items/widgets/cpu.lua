@@ -1,3 +1,4 @@
+local sbar = require("sketchybar")
 local icons = require("icons")
 local colors = require("colors")
 local settings = require("settings")
@@ -6,7 +7,7 @@ local settings = require("settings")
 -- the cpu load data, which is fired every 2.0 seconds.
 sbar.exec("killall cpu_load >/dev/null; $CONFIG_DIR/helpers/event_providers/cpu_load/bin/cpu_load cpu_update 2.0")
 
-local cpu = sbar.add("graph", "widgets.cpu" , 42, {
+local cpu = sbar.add("graph", "widgets.cpu", 42, {
   position = "right",
   graph = { color = colors.blue },
   background = {
@@ -26,9 +27,9 @@ local cpu = sbar.add("graph", "widgets.cpu" , 42, {
     align = "right",
     padding_right = 0,
     width = 0,
-    y_offset = 4
+    y_offset = 4,
   },
-  padding_right = settings.paddings + 6
+  padding_right = settings.paddings + 6,
 })
 
 cpu:subscribe("cpu_update", function(env)
@@ -59,11 +60,11 @@ end)
 
 -- Background around the cpu item
 sbar.add("bracket", "widgets.cpu.bracket", { cpu.name }, {
-  background = { color = colors.bg1 }
+  background = { color = colors.bg1 },
 })
 
 -- Background around the cpu item
 sbar.add("item", "widgets.cpu.padding", {
   position = "right",
-  width = settings.group_paddings
+  width = settings.group_paddings,
 })

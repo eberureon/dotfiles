@@ -11,6 +11,13 @@ return {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-nvim-lsp-signature-help',
 
+    {
+      "zbirenbaum/copilot-cmp",
+      config = function()
+        require("copilot_cmp").setup()
+      end
+    },
+
     -- Adds a number of user-friendly snippets
     'rafamadriz/friendly-snippets',
   },
@@ -66,6 +73,7 @@ return {
         format = highlightColors.format,
       },
       sources = {
+        { name = 'copilot' },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },

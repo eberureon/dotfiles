@@ -5,3 +5,34 @@
 -- https://github.com/FelixKratz/dotfiles/blob/master/install_sketchybar.sh
 require("helpers")
 require("init")
+
+-- Register the aerospace workspace change event
+os.execute("sketchybar --add event aerospace_workspace_change")
+
+-- Get the list of all workspaces from Aerospace
+local handle = io.popen("aerospace list-workspaces --all")
+local workspaces = handle:read("*a")
+handle:close()
+
+-- Iterate over each workspace ID and add the corresponding Sketchybar item
+for sid in workspaces:gmatch("%S+") do
+  local cmd = string.format(
+    "sketchybar --add item space.%s left "
+    .. "--subscribe space.%s aerospace_workspace_change "
+    .. "--set space.%s "
+    .. "background.color=0x44ffffff "
+    .. "background.corner_radius=5 "
+    .. "background.height=20 "
+    .. "background.drawing=off "
+    .. 'label="%s" '
+    .. 'click_script="aerospace workspace %s" '
+    .. 'script="$CONFIG_DIR/plugins/aerospace.sh %s"',
+    sid,
+    sid,
+    sid,
+    sid,
+    sid,
+    sid
+  )
+  os.execute(cmd)
+end

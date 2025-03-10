@@ -4,9 +4,13 @@ local icons = require("icons")
 local settings = require("settings")
 local app_icons = require("helpers.app_icons")
 
+-- Configuration
+local POLL_INTERVAL = 1 -- Polling interval in seconds
+local query_workspaces = "aerospace list-workspaces --all"
+
 local spaces = {}
 
-for i = 1, 10, 1 do
+for i in query_workspaces; do
   local space = sbar.add("space", "space." .. i, {
     space = i,
     icon = {

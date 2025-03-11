@@ -45,23 +45,28 @@ config.keys = {
   },
   {
     key = "h",
-    mods = "CMD|ALT",
+    mods = "CTRL|SHIFT",
     action = action.ActivatePaneDirection("Left"),
   },
   {
     key = "l",
-    mods = "CMD|ALT",
+    mods = "CTRL|SHIFT",
     action = action.ActivatePaneDirection("Right"),
   },
   {
     key = "k",
-    mods = "CMD|ALT",
+    mods = "CTRL|SHIFT",
     action = action.ActivatePaneDirection("Up"),
   },
   {
     key = "j",
-    mods = "CMD|ALT",
+    mods = "CTRL|SHIFT",
     action = action.ActivatePaneDirection("Down"),
+  },
+  {
+    key = "Z",
+    mods = "CMD",
+    action = action.TogglePaneZoomState,
   },
 }
 

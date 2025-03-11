@@ -52,12 +52,12 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = "move-mouse window-lazy-center"
 
 [workspace-to-monitor-force-assignment]
-    1 = 'main' # Main monitor
+    1 = 'main'
     2 = 'main'
     3 = 'main'
     4 = 'main'
     5 = 'secondary'
-    6 = 'secondary' # Secondary monitor
+    6 = 'secondary'
     7 = 'secondary'
     8 = 'secondary'
     9 = 'secondary'

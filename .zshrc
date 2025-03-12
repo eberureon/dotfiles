@@ -29,9 +29,6 @@ esac
 export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 # WezTerm end
 
-# Created by `pipx` on 2024-11-14 11:51:23
-export PATH="$PATH:/Users/leonebel/.local/bin"
-
 # History setup
 HISTFILE=$HOME/.zsh_history
 SAVEHIST=1000

@@ -62,6 +62,9 @@ on-focus-changed = "move-mouse window-lazy-center"
     8 = 'secondary'
     9 = 'secondary'
     B = 'secondary'
+    E = 'secondary'
+    M = 'secondary'
+    N = 'secondary'
     T = 'secondary'
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
@@ -101,7 +104,7 @@ outer.right =      10
 
 # You can uncomment this line to open up terminal with alt + enter shortcut
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-alt-enter = 'exec-and-forget open -n /Applications/WezTerm.app'
+alt-enter = 'exec-and-forget open -a /Applications/WezTerm.app'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
@@ -207,6 +210,26 @@ run = "move-node-to-workspace T"
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
 run = "move-node-to-workspace B"
+
+[[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+run = "move-node-to-workspace B"
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.thunderbird'
+run = "move-node-to-workspace E"
+
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = "move-node-to-workspace M"
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = "move-node-to-workspace N"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Notes'
+run = "move-node-to-workspace N"
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'finder'

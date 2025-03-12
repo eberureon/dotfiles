@@ -13,7 +13,7 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
-        [ 
+        [
           pkgs.vim
         ];
       nix.settings.experimental-features = "nix-command flakes";
@@ -23,27 +23,30 @@
       system.stateVersion = 6;
       nixpkgs.hostPlatform = "aarch64-darwin";
       # default shell on catalina
-      programs.zsh.enable = true;  
+      programs.zsh.enable = true;
       security.pam.services.sudo_local.touchIdAuth = true;
 
       system.defaults = {
         finder.AppleShowAllExtensions = true;
         finder.FXPreferredViewStyle = "clmv";
+        loginwindow.LoginwindowText = "Leon E";
         screencapture.location = "~/Pictures/screenshots";
         screensaver.askForPasswordDelay = 10;
         dock.tilesize = 36;
         # dock.persistent-apps = [
+        #   { app = "/System/Applications/Launchpad.app"; }
         #   { app = "/System/Applications/Calendar.app"; }
-        #   { app = "/Applications/Thunderbird.app"; } 
-        #   { app = "/Applications/Zen Browser.app"; } 
-        #   { app = "/Applications/Google Chrome.app/"; } 
-        #   { app = "/System/Applications/Notes.app"; } 
-        #   { app = "/Applications/Obsidian.app"; } 
-        #   { app = "/Applications/Zed.app"; } 
-        #   { app = "/Applications/Bitwarden.app"; } 
-        #   { app = "/Applications/Zotero.app"; } 
-        #   { app = "/Applications/VirtualBox.app"; } 
+        #   { app = "/Applications/Thunderbird.app"; }
+        #   { app = "/Applications/Google Chrome.app/"; }
+        #   { app = "/Applications/Zen Browser.app"; }
+        #   { app = "/System/Applications/Notes.app"; }
+        #   { app = "/Applications/Obsidian.app"; }
+        #   { app = "/Applications/Zed.app"; }
+        #   { app = "/Applications/Bitwarden.app"; }
+        #   { app = "/Applications/Zotero.app"; }
+        #   { app = "/Applications/VirtualBox.app"; }
         #   { app = "/Applications/WezTerm.app"; }
+        #   { app = "/Applications/Spotify.app"; }
         #   { app = "/System/Applications/System Settings.app"; }
         # ];
       };
@@ -52,20 +55,32 @@
       homebrew.enable = true;
       homebrew.casks = [
         "wireshark"
-        "aerospace"
+        "zen-browser"
+        "google-chrome"
+        "obsidian"
+        "bitwarden"
+        "spotify"
+        "nikitabobko/tap/aerospace"
         "font-hack-nerd-font"
+        "wezterm"
       ];
       homebrew.brews = [
-        "fzf"
         "eza"
         "zoxide"
         "skhd"
         "htop"
+        "lua"
+        "fzf"
+        "tree-sitter"
         "neovim"
         "fastfetch"
         "jq"
         "ripgrep"
+        "node"
         "nvm"
+        "imagemagick"
+        "zsh-autosuggestions"
+        "zsh-syntax-highlighting"
       ];
     };
   in

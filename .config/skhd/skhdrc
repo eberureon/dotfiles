@@ -1,10 +1,10 @@
 # -- Opening Applications --
 
 # Chrome
-alt - c : "open" "-a" "/Applications/Google Chrome.app"
+alt - c : run-external "open" "-a" "/Applications/Google Chrome.app"
 
 # WezTerm
-alt - w : "open" "-a" "/Applications/WezTerm.app"
+alt - enter : run-external "open" "-a" "/Applications/WezTerm.app"
 
 # Obsidian
-alt - o : "open" "-a" "/Applications/Obsidian.app/Contents/MacOS/Obsidian"
+alt - o : run-external "open" "-a" "/Applications/Obsidian.app/Contents/MacOS/Obsidian"

@@ -104,7 +104,9 @@ outer.right =      10
 
 # You can uncomment this line to open up terminal with alt + enter shortcut
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-alt-enter = 'exec-and-forget open -a /Applications/WezTerm.app'
+alt-w = 'exec-and-forget open -a /Applications/WezTerm.app'
+alt-o = 'exec-and-forget open -a /Applications/Obsidian.app/Contents/MacOS/Obsidian'
+alt-c = 'exec-and-forget open -a /Applications/Google Chrome.app'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'

@@ -3,6 +3,7 @@
   name = ebelleon
 [core]
   autocrlf = true
+  edtior = vim
 [help]
   autocorrect = 9
 [alias]

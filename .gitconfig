@@ -2,29 +2,70 @@
   email = some_email@github.com
   name = ebelleon
 [core]
-  autocrlf = true
-  edtior = vim
+  autocrlf = false
+  editor = vim
+  # Make `git rebase` safer on macOS.
+  trustctime = false
+  # Speed up commands involving untracked files such as `git status`.
+  # https://git-scm.com/docs/git-update-index#_untracked_cache
+  untrackedCache = true
 [help]
   autocorrect = 9
+[color]
+  # Use colors in Git commands that are capable of colored output when
+  # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+  ui = auto
+[color "branch"]
+  current = cyan reverse
+  local = cyan
+  remote = yellow
+[color "diff"]
+  ; meta = black bold
+  frag = magenta bold # line info
+  old = red # deletions
+  new = green # additions
+[color "status"]
+  added = green
+  changed = yellow
+  untracked = red
 [alias]
   a = add
   aa = add --all
-  b = branch
   c = commit -m
   ca = commit --amend
-  d = diff --color-words
-  dc = diff --cached --color-words
+  carm = commit --amend --reuse-message=HEAD
+  co = checkout
+  # Switch to a branch, creating it if necessary.
+  go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+  d = diff
+  dc = diff --cached
   f = fetch
   p = pull
   pr = pull --rebase
   pushf = push --force-with-lease
-  r = rebase
-  l = log --graph
-  lg = log --all --graph --pretty='format:%C(auto)%h%d %s %C(dim yellow) [%an] (%ad)%C(reset)' --date=format:'%d.%m.%y %H:%M:%S'
-  co = checkout
   m = merge
+  r = rebase
+  # Interactive rebase with the given number of latest commits.
+  ri = "!r() { git rebase -i HEAD~$1; }; r"
+  l = log --graph
+  lg = log --all --graph --pretty='format:%C(auto)%h%d %s %C(green)[%an] %Creset%C(blue)(%ad)%C(reset)' --date=format:'%d.%m.%y %H:%M:%S'
   s = status --short --branch
   sb = show-branch
+  # Stash commands
   st = stash push
   sp = stash pop
+  sd = stash drop
+  # Find commits by source code
+  fc = "!f() { git log --pretty='format:%C(auto)%h%d %s %C(green)[%an] %Creset%C(blue)(%ad)' --decorate --date=format:'%d.%m.%Y' -S$1; }; f"
+  # Find commits by commit message
+  fm = "!f() { git log --pretty=format:'%C(auto)%h%d %s %C(green)[%cn] %C(blue)(%ad)' --decorate --date=format:'%d.%m.%Y' --grep=$1; }; f"
+  # Find branches containing commit
+  fb = "!f() { git branch -a --contains $1; }; f"
+  # Remove branches that have already been merged with main.
+  dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+  # Show verbose output about tags, branches or remotes
+  b = branch --all
+  tags = tag -l
+  remotes = remote --verbose
+  # Show all aliases
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t= \\2/' | sort

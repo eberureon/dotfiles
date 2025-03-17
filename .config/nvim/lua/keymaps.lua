@@ -34,8 +34,7 @@ map('n', 'C-u>', '<C-u>zz')
 -- This deletes the highlighted word into the void register and then pastes
 map('x', '<leader>p', [["_dP]], { desc = 'Copy without loosing current word' })
 map({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'Delete without loosing current word' })
-map('n', '<leader>rs', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = '[R]eplace word from current Cursor' })
+map('n', '<leader>rs', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[R]eplace word from current Cursor' })
 
 -- copy and paste to clipboard by: asbjornHaland
 map({ 'n', 'v' }, '<leader>y', [["+y]], { desc = 'Copy to system clipboard' })

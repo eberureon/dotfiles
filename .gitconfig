@@ -11,23 +11,6 @@
   untrackedCache = true
 [help]
   autocorrect = 9
-[color]
-  # Use colors in Git commands that are capable of colored output when
-  # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-  ui = auto
-[color "branch"]
-  current = cyan reverse
-  local = cyan
-  remote = yellow
-[color "diff"]
-  ; meta = black bold
-  frag = magenta bold # line info
-  old = red # deletions
-  new = green # additions
-[color "status"]
-  added = green
-  changed = yellow
-  untracked = red
 [alias]
   a = add
   aa = add --all
@@ -67,5 +50,19 @@
   b = branch --all
   tags = tag -l
   remotes = remote --verbose
-  # Show all aliases
+  # List contributors with number of commits.
+  contributors = shortlog --summary --numbered # Show all aliases
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t= \\2/' | sort
+[color "branch"]
+  current = cyan reverse
+  local = cyan
+  remote = yellow
+[color "diff"]
+  ; meta = black bold
+  frag = magenta bold # line info
+  old = red # deletions
+  new = green # additions
+[color "status"]
+  added = green
+  changed = yellow
+  untracked = red

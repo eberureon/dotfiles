@@ -4,3 +4,4 @@
 
 # .config
 .config/nvim/lazy-lock.json
+.config/lazyvim/lazy-lock.json

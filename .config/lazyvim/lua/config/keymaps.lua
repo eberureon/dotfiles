@@ -16,23 +16,6 @@ map("n", "<leader>sf", LazyVim.pick("files"), { desc = "Search Files (Root Dir)"
 
 -- paste word without loosing current copied word
 -- This deletes the highlighted word into the void register and then pastes
-map("x", "<leader>p", [["_dP]], { desc = "Copy without loosing current word" })
-map({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without loosing current word" })
-map(
-  "n",
-  "<leader>rs",
-  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = "Replace word from current Cursor" }
-)
-
--- Remap Search and Replace
-map({ "n", "v" }, "<leader>sR", function()
-  local grug = require("grug-far")
-  local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
-  grug.open({
-    transient = true,
-    prefills = {
-      filesFilter = ext and ext ~= "" and "*." .. ext or nil,
-    },
-  })
-end, { desc = "Search and Replace" })
+map("x", "<leader>p", [["_dP]], { desc = "Paste without loosing current word" })
+map("v", "<leader>d", [["_d]], { desc = "Delete without loosing current word" })
+map("n", "<leader>rs", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Word from current Cursor" })

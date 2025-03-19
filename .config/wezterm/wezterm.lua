@@ -25,7 +25,7 @@ config.colors = {
 }
 
 config.font = wezterm.font("PragmataPro Mono")
-config.font_size = 12
+config.font_size = 13
 
 config.window_decorations = "RESIZE"
 -- config.window_background_opacity = 0.9

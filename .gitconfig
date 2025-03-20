@@ -51,8 +51,9 @@
   tags = tag -l
   remotes = remote --verbose
   # List contributors with number of commits.
-  contributors = shortlog --summary --numbered # Show all aliases
-  alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t= \\2/' | sort
+  contributors = shortlog --summary --numbered
+  # Show all aliases
+  alias = "!git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t= \\2/' | sort"
 [color "branch"]
   current = cyan reverse
   local = cyan

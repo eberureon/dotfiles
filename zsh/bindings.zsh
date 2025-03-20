@@ -51,7 +51,6 @@ typeset -gA keys=(
     PageUp               '^[[5~'
     PageDown             '^[[6~'
     Backspace            '^?'
-    Ctrl+R                '^R'
 
     Shift+Up             '^[[1;2A'
     Shift+Down           '^[[1;2B'
@@ -139,9 +138,12 @@ typeset -gA keys=(
     Ctrl+Alt+Shift+Backspace '^?'
   )
 
-bindkey -- "${keys[Home]}"   .beginning-of-line
-bindkey -- "${keys[End]}"    .end-of-line
-bindkey -- "${keys[Delete]}" .delete-char
-bindkey -- "${keys[Up]}"     .history-search-backward
-bindkey -- "${keys[Down]}"   .history-search-forward
-bindkey -- "${keys[Ctrl+R]}" .history-incremental-search-backward
+bindkey -- "${keys[Home]}"   beginning-of-line
+bindkey -- "${keys[End]}"    end-of-line
+bindkey -- "${keys[Delete]}" delete-char
+bindkey -- "${keys[Up]}"     history-search-backward
+bindkey -- "${keys[Down]}"   history-search-forward
+bindkey -- "^R"              history-incremental-search-backward
+bindkey -- "^S"              history-incremental-search-forward
+bindkey -- "^Xr"             history-incremental-search-backward
+bindkey -- "^Xs"             history-incremental-search-forward

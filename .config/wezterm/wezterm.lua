@@ -7,6 +7,7 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
 
+-- Inital window size
 config.initial_cols = 170
 config.initial_rows = 40
 

@@ -31,7 +31,7 @@
   r = rebase
   # Interactive rebase with the given number of latest commits.
   ri = "!r() { git rebase -i HEAD~$1; }; r"
-  l = log --graph
+  l = log --graph --stat
   lg = log --all --graph --pretty='format:%C(auto)%h%d %s %C(green)[%an] %Creset%C(blue)(%ad)%C(reset)' --date=format:'%d.%m.%y %H:%M:%S'
   s = status --short --branch
   sb = show-branch

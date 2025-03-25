@@ -111,7 +111,6 @@ alt-shift-j = 'move down'
 alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
-
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
@@ -167,7 +166,6 @@ k = 'resize height -50'
 l = 'resize width +50'
 b = 'balance-sizes'
 
-
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 minus = 'resize smart -50'
 equal = 'resize smart +50'
@@ -188,6 +186,13 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+
+[[on-window-detected]]
+if.app-id = "com.mitchellh.ghostty"
+run=[
+  "layout floating",
+  "move-node-to-workspace T",
+]
 
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'

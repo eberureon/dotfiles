@@ -69,7 +69,7 @@ config.keys = {
     action = action.ActivatePaneDirection("Down"),
   },
   {
-    key = "Z",
+    key = "F",
     mods = "CMD",
     action = action.TogglePaneZoomState,
   },

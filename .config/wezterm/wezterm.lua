@@ -39,33 +39,33 @@ config.keys = {
     action = action.CloseCurrentPane({ confirm = true }),
   },
   {
-    key = "v",
+    key = "d",
     mods = "CMD|SHIFT",
     action = action.SplitVertical({ domain = "CurrentPaneDomain" }),
   },
   {
-    key = "h",
-    mods = "CMD|SHIFT",
+    key = "d",
+    mods = "CMD",
     action = action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
   },
   {
     key = "h",
-    mods = "CTRL|SHIFT",
+    mods = "CMD|SHIFT",
     action = action.ActivatePaneDirection("Left"),
   },
   {
     key = "l",
-    mods = "CTRL|SHIFT",
+    mods = "CMD|SHIFT",
     action = action.ActivatePaneDirection("Right"),
   },
   {
     key = "k",
-    mods = "CTRL|SHIFT",
+    mods = "CMD|SHIFT",
     action = action.ActivatePaneDirection("Up"),
   },
   {
     key = "j",
-    mods = "CTRL|SHIFT",
+    mods = "CMD|SHIFT",
     action = action.ActivatePaneDirection("Down"),
   },
   {

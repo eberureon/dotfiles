@@ -1,12 +1,23 @@
+# # Comments start with a `#` and are only valid on their own line.
+# Blank lines are ignored!
+
 theme = catppuccin-frappe
+# cursor-color = "#FF8C69"
+
 font-size = 14
-font-family = "PragmataPro Mono"
-font-feature = -calt
-font-feature = -liga
-font-feature = -dlig
+font-family = "PragmataPro Mono Bold"
+# font-feature = -calt
+# font-feature = -liga
+# font-feature = -dlig
 background-blur-radius = 20
 mouse-hide-while-typing = true
 window-decoration = true
-# keybind = global:cmd+/=toggle_quick_terminal
 macos-option-as-alt = true
-# background-opacity = 0.7
+
+# Keybindings
+# keybind = global:cmd+/=toggle_quick_terminal
+keybind = ctrl+z=close_surface
+keybind = cmd+opt+k=goto_split:up
+keybind = cmd+opt+j=goto_split:down
+keybind = cmd+opt+l=goto_split:right
+keybind = cmd+opt+h=goto_split:left

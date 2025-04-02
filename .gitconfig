@@ -26,6 +26,7 @@
   f = fetch
   p = pull
   pr = pull --rebase
+  pushu = push -u origin HEAD
   pushf = push --force-with-lease
   m = merge
   r = rebase

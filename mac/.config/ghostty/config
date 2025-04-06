@@ -6,9 +6,9 @@ theme = catppuccin-frappe
 
 font-size = 14
 font-family = "PragmataPro Mono Bold"
-# font-feature = -calt
-# font-feature = -liga
-# font-feature = -dlig
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
 background-blur-radius = 20
 mouse-hide-while-typing = true
 window-decoration = true

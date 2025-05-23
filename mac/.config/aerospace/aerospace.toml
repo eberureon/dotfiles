@@ -52,7 +52,7 @@ on-focus-changed = "move-mouse window-lazy-center"
     M = 'main'
     5 = 'secondary'
     B = 'secondary'
-    T = 'secondary'
+    # T = 'secondary'
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:

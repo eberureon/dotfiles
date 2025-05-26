@@ -18,6 +18,8 @@ alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
 ## ARCH
+alias start-openvpn='nmcli c up'
+alias stop-openvpn='nmcli c down'
 alias sysup='yay -Syu --devel --timeupdate' # Update system
 alias keyringupdate='yay -Sy archlinux-keyring'
 alias stat='yay -Ps'                   # Print system statistics
@@ -37,6 +39,3 @@ alias dcnp='docker network prune --filter "until=12h"'                          
 alias dcvp='docker volume prune'                                                # remove all volume older than 12 hours
 alias dcsp='docker system prune --volumes'                                      # remove everything unused
 alias dcbp='docker builder prune'                                               # remove build cache
-
-## WEZTERM
-alias wz-tab-title='wezterm set-tab-title'

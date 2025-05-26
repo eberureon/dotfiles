@@ -1,6 +1,5 @@
 ## GENERAL
 # ---- Zoxide (better cd) ----
-eval "$(zoxide init zsh)"
 alias cd="z"
 # ---- Eza (better ls) -----
 alias ls="eza -l --icons --git -a"

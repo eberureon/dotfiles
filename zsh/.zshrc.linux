@@ -63,3 +63,5 @@ fi
 bindkey "${key[Up]}"   up-line-or-beginning-search
 bindkey "${key[Down]}" down-line-or-beginning-search
 
+# Add zoxide - a cd alternative
+eval "$(zoxide init bash)"

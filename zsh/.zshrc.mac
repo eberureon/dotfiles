@@ -34,4 +34,5 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-
+# Add zoxide - a cd alternative
+eval "$(zoxide init bash)"

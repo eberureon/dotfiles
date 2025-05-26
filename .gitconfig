@@ -1,6 +1,6 @@
 [user]
   email = some_email@github.com
-  name = ebelleon
+  name = Eberureon
 [core]
   autocrlf = false
   editor = vim
@@ -11,6 +11,10 @@
   untrackedCache = true
 [help]
   autocorrect = 9
+[init]
+  defaultBranch = main
+[fetch]
+  prune = true
 [alias]
   a = add
   aa = add --all

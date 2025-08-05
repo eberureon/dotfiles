@@ -25,7 +25,7 @@ alias stat='yay -Ps'                   # Print system statistics
 alias clean='yay -Yc && yes | yay -Sc' # Clean unneeded dependencies
 
 # GIT
-alias delb='echo "🤯 Prune branches" && git remote prune origin && echo "⛔️ Delete branches" && git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d'
+alias delb='echo "🤯 Prune branches" && git remote prune origin && echo "⛔️ Delete branches" && git branch --merged | grep -Ev "(^\*|master|develop)" | xargs git branch -d'
 
 ## DOCKER
 alias dc='docker-compose'

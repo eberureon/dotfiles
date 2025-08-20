@@ -28,10 +28,10 @@ alias clean='yay -Yc && yes | yay -Sc' # Clean unneeded dependencies
 alias delb='echo "🤯 Prune branches" && git remote prune origin && echo "⛔️ Delete branches" && git branch --merged | grep -Ev "(^\*|master|develop)" | xargs git branch -d'
 
 ## DOCKER
-alias dc='docker-compose'
-alias dcd='docker-compose down'
+alias dc='docker compose'
+alias dcd='docker compose down'
 alias dce='docker exec -it'
-alias dcup='docker-compose down && docker-compose pull && docker-compose up -d' # update Docker Image
+alias dcup='docker compose down && docker compose pull && docker compose up -d' # update Docker Image
 alias dccp='docker container prune --filter "until=12h"'                        # remove all container older than 12 hours
 alias dcip='docker image prune -a --filter "until=12h"'                         # remove all images older than 12 hours
 alias dcnp='docker network prune --filter "until=12h"'                          # remove all network older than 12 hours

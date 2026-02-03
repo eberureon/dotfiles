@@ -1,7 +1,7 @@
 # # Comments start with a `#` and are only valid on their own line.
 # Blank lines are ignored!
 
-theme = catppuccin-frappe
+theme = Catppuccin Frappe
 # cursor-color = "#FF8C69"
 
 font-size = 14

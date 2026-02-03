@@ -13,6 +13,8 @@ background-blur-radius = 20
 mouse-hide-while-typing = true
 window-decoration = true
 macos-option-as-alt = true
+window-height = 30
+window-width = 130
 
 # Keybindings:
 # Valid modifiers are shift

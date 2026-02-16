@@ -1,29 +1,37 @@
 return {
   "nvimtools/none-ls.nvim",
-  dependencies = "nvim-lua/plenary.nvim",
+  dependencies = {
+    "nvimtools/none-ls-extras.nvim",
+    "nvim-lua/plenary.nvim",
+  },
   optional = true,
   opts = function(_, opts)
-    local nls = require("null-ls")
+    local null_ls = require("null-ls")
+    local formatting = null_ls.builtins.formatting
     opts.sources = vim.list_extend(opts.sources or {}, {
-      nls.builtins.formatting.prettier,
-      nls.builtins.formatting.black,
-      nls.builtins.formatting.biome,
-      nls.builtins.diagnostics.fish,
-      nls.builtins.formatting.stylua,
-      nls.builtins.formatting.rustywind,
-    })
-    table.insert(
-      opts.sources,
-      nls.builtins.formatting.biome.with({
+      require("none-ls.diagnostics.ruff").with({
+        filetypes = { "python" },
+        extra_args = { "--select=E,F,W,I,C90" },
+      }),
+      require("none-ls.formatting.ruff").with({
+        filetypes = { "python" },
+        extra_args = { "--fix" },
+      }),
+      formatting.shfmt,
+      formatting.prettier,
+      formatting.biome,
+      formatting.stylua,
+      formatting.rustywind,
+      formatting.scalafmt,
+
+      formatting.biome.with({
         filetypes = { "typescriptreact", "javascriptreact", "typescript", "javascript", "json" },
         condition = function(utils)
           return utils.root_has_file({ "biome.json" })
         end,
-      })
-    )
-    table.insert(
-      opts.sources,
-      nls.builtins.formatting.prettier.with({
+      }),
+
+      formatting.prettier.with({
         filetypes = { "typescriptreact", "javascriptreact", "typescript", "javascript", "json" },
         condition = function(utils)
           return utils.root_has_file({
@@ -38,20 +46,17 @@ return {
             ".prettierrc.config.ts",
           })
         end,
-      })
-    )
-    table.insert(
-      opts.sources,
-      nls.builtins.formatting.stylua.with({
+      }),
+
+      formatting.stylua.with({
         filetypes = { "lua" },
-      })
-    )
-    table.insert(
-      opts.sources,
-      nls.builtins.formatting.rustywind.with({
+      }),
+
+      formatting.rustywind.with({
         filetypes = { "typescriptreact", "javascriptreact" },
-      })
-    )
-    table.insert(opts.sources, nls.builtins.code_actions.gitsigns)
+      }),
+
+      nls.builtins.code_actions.gitsigns,
+    })
   end,
 }

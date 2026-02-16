@@ -1,5 +1,7 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.lang.git",
+    "lazyvim.plugins.extras.lang.scala",
     "lazyvim.plugins.extras.util.mini-hipatterns"
   ],
   "news": {

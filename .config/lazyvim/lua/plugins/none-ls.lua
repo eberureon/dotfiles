@@ -23,6 +23,9 @@ return {
       formatting.stylua,
       formatting.rustywind,
       formatting.scalafmt,
+      formatting.sqlfluff.with({
+        extra_args = { "--dialect", "postgres" }, -- change to your dialect
+      }),
 
       formatting.biome.with({
         filetypes = { "typescriptreact", "javascriptreact", "typescript", "javascript", "json" },
@@ -56,7 +59,7 @@ return {
         filetypes = { "typescriptreact", "javascriptreact" },
       }),
 
-      nls.builtins.code_actions.gitsigns,
+      null_ls.builtins.code_actions.gitsigns,
     })
   end,
 }

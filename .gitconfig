@@ -20,7 +20,7 @@
   aa = add --all
   c = commit -m
   ca = commit -am
-  cam = commit --amend -m
+  cam = commit --amend
   camn = commit --no-edit --amend
   co = checkout
   # Switch to a branch, creating it if necessary.

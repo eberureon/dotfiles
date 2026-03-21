@@ -11,7 +11,7 @@ font-feature = -liga
 font-feature = -dlig
 background-blur-radius = 20
 mouse-hide-while-typing = true
-window-decoration = true
+window-decoration = server
 window-height = 50
 window-width = 200
 

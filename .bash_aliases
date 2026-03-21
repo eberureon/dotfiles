@@ -15,6 +15,7 @@ alias less='less -FSRXc'
 alias wget="wget -c --user-agent 'noleak'"
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+alias vim=nvim
 
 ## ARCH
 alias start-openvpn='nmcli c up'

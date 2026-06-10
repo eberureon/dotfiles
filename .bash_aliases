@@ -20,7 +20,7 @@ alias vim=nvim
 ## ARCH
 alias start-openvpn='nmcli c up'
 alias stop-openvpn='nmcli c down'
-alias sysup='yay -Syu --devel --timeupdate' # Update system
+alias sysup='yay -Syu --devel' # Update system
 alias keyringupdate='yay -Sy archlinux-keyring'
 alias stat='yay -Ps'                   # Print system statistics
 alias clean='yay -Yc && yes | yay -Sc' # Clean unneeded dependencies

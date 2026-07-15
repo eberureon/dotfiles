@@ -18,8 +18,6 @@ return {
         extra_args = { "--fix" },
       }),
       formatting.shfmt,
-      formatting.prettier,
-      formatting.biome,
       formatting.stylua,
       formatting.rustywind,
       formatting.scalafmt,
@@ -27,39 +25,20 @@ return {
         extra_args = { "--dialect", "postgres" }, -- change to your dialect
       }),
 
-      formatting.biome.with({
-        filetypes = { "typescriptreact", "javascriptreact", "typescript", "javascript", "json" },
-        condition = function(utils)
-          return utils.root_has_file({ "biome.json" })
-        end,
-      }),
-
-      formatting.prettier.with({
-        filetypes = { "typescriptreact", "javascriptreact", "typescript", "javascript", "json" },
-        condition = function(utils)
-          return utils.root_has_file({
-            ".prettierrc",
-            ".prettierrc.json",
-            ".prettierrc.yml",
-            ".prettierrc.yaml",
-            ".prettierrc.json5",
-            ".prettierrc.js",
-            ".prettierrc.config.js",
-            ".prettierrc.ts",
-            ".prettierrc.config.ts",
-          })
-        end,
-      }),
+      -- formatting.biome.with({
+      --   filetypes = { "typescriptreact", "javascriptreact", "typescript", "javascript", "json" },
+      --   condition = function(utils)
+      --     return utils.root_has_file({ "biome.json" })
+      --   end,
+      -- }),
 
       formatting.stylua.with({
         filetypes = { "lua" },
       }),
 
-      formatting.rustywind.with({
-        filetypes = { "typescriptreact", "javascriptreact" },
-      }),
-
       null_ls.builtins.code_actions.gitsigns,
     })
+
+    table.insert(opts.sources, formatting.biome)
   end,
 }

@@ -4,7 +4,7 @@
 
 vim.g.lazyvim_picker = "snacks"
 vim.g.lazyvim_ts_lsp = "tsgo"
-vim.g.lazyvim_prettier_needs_config = true
+vim.g.lazyvim_prettier_needs_config = false
 
 -- views can only be fully collapsed with the global statusline
 vim.opt.laststatus = 3

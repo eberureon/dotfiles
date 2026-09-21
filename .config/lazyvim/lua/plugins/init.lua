@@ -43,11 +43,11 @@ return {
   },
   {
     "mason-org/mason.nvim",
-    -- opts = {
-    --   ensure_installed = {
-    --     "biome",
-    --     "prettierd",
-    --   },
-    -- },
+    opts = {
+      ensure_installed = {
+        -- "biome",
+        "prettierd",
+      },
+    },
   },
 }

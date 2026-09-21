@@ -51,16 +51,15 @@ return {
         extra_args = { "--dialect", "postgres" }, -- change to your dialect
       }),
 
-      formatting.biome,
-      -- formatting.biome.with({
-      --   filetypes = { "typescriptreact", "javascriptreact", "typescript", "javascript", "json" },
-      --   condition = function(utils)
-      --     return utils.root_has_file({ "biome.json" })
-      --   end,
-      -- }),
+      formatting.biome.with({
+        filetypes = { "typescriptreact", "javascriptreact", "typescript", "javascript", "json", "html" },
+        condition = function(utils)
+          return utils.root_has_file({ "biome.json", "biome.jsonc" })
+        end,
+      }),
 
       formatting.prettier.with({
-        filetypes = { "typescriptreact", "javascriptreact", "typescript", "javascript", "json" },
+        filetypes = { "typescriptreact", "javascriptreact", "typescript", "javascript", "json", "html" },
         condition = function(utils)
           return utils.root_has_file({
             ".prettierrc",
@@ -68,10 +67,20 @@ return {
             ".prettierrc.yml",
             ".prettierrc.yaml",
             ".prettierrc.json5",
+            ".prettierrc.cjs",
             ".prettierrc.js",
             ".prettierrc.config.js",
+            ".prettierrc.mjs",
             ".prettierrc.ts",
             ".prettierrc.config.ts",
+            ".prettierrc.cts",
+            ".prettierrc.mts",
+            "prettier.config.js",
+            "prettier.config.cjs",
+            "prettier.config.mjs",
+            "prettier.config.ts",
+            "prettier.config.cts",
+            "prettier.config.mts",
           })
         end,
       }),

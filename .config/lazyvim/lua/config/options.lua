@@ -3,9 +3,9 @@
 -- Add any additional options here
 
 vim.g.lazyvim_picker = "snacks"
-vim.g.lazyvim_ts_lsp = "tsgo"
+vim.g.lazyvim_ts_lsp = "tsc"
 -- vim.g.lazyvim_prettier_needs_config = false
 -- views can only be fully collapsed with the global statusline
 vim.opt.laststatus = 3
 -- Set to false to disable auto format
-vim.g.lazyvim_eslint_auto_format = true
+vim.g.lazyvim_eslint_auto_format = false

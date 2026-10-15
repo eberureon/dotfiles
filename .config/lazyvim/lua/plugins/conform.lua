@@ -11,6 +11,13 @@ return {
       javascriptreact = { "oxfmt", "eslint_d" },
       typescript = { "oxfmt", "eslint_d" },
       typescriptreact = { "oxfmt", "eslint_d" },
+      angular = { "eslint_d" },
+      htmlangular = { "eslint_d" },
+      json = { "prettierd" },
+      html = { "prettierd" },
+      astro = { "prettierd", "eslint_d", "rustywind" },
+      css = { "rustywind" },
+      scss = { "rustywind" },
     })
 
     opts.formatters = vim.tbl_deep_extend("force", opts.formatters or {}, {
@@ -36,7 +43,24 @@ return {
             "oxfmt.config.ts",
             "oxfmt.config.mts",
             "oxfmt.config.cts",
-            "package.json",
+          })(nil, ctx)
+        end,
+      },
+      eslint_d = {
+        condition = function(_, ctx)
+          return require("conform.util").root_file({
+            "eslint.config.js",
+            "eslint.config.mjs",
+            "eslint.config.cjs",
+            "eslint.config.ts",
+            "eslint.config.mts",
+            "eslint.config.cts",
+            ".eslintrc",
+            ".eslintrc.js",
+            ".eslintrc.cjs",
+            ".eslintrc.yml",
+            ".eslintrc.yaml",
+            ".eslintrc.json",
           })(nil, ctx)
         end,
       },
@@ -53,32 +77,4 @@ return {
       },
     })
   end,
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        eslint = {
-          root_dir = function(bufnr, on_dir)
-            local root = vim.fs.root(bufnr, {
-              "eslint.config.js",
-              "eslint.config.mjs",
-              "eslint.config.cjs",
-              "eslint.config.ts",
-              "eslint.config.mts",
-              "eslint.config.cts",
-              ".eslintrc",
-              ".eslintrc.js",
-              ".eslintrc.cjs",
-              ".eslintrc.yml",
-              ".eslintrc.yaml",
-              ".eslintrc.json",
-            })
-            if root then
-              on_dir(root)
-            end
-          end,
-        },
-      },
-    },
-  },
 }

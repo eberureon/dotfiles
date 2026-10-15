@@ -46,7 +46,7 @@ return {
     opts = {
       ensure_installed = {
         -- "biome",
-        "prettierd",
+        -- "prettierd",
         "oxfmt",
       },
     },

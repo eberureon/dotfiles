@@ -47,6 +47,7 @@ return {
       ensure_installed = {
         -- "biome",
         "prettierd",
+        "oxfmt",
       },
     },
   },

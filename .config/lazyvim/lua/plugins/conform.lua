@@ -7,6 +7,10 @@ return {
       bash = { "shfmt" },
       lua = { "stylua" },
       sql = { "sqlfluff" },
+      javascript = { "oxfmt", "eslint_d" },
+      javascriptreact = { "oxfmt", "eslint_d" },
+      typescript = { "oxfmt", "eslint_d" },
+      typescriptreact = { "oxfmt", "eslint_d" },
     })
 
     opts.formatters = vim.tbl_deep_extend("force", opts.formatters or {}, {
@@ -26,9 +30,13 @@ return {
           return require("conform.util").root_file({
             ".oxfmtrc.json",
             ".oxfmtrc.jsonc",
+            "oxfmt.config.js",
+            "oxfmt.config.mjs",
+            "oxfmt.config.cjs",
             "oxfmt.config.ts",
-            "vite.config.ts",
-            "vite.config.js",
+            "oxfmt.config.mts",
+            "oxfmt.config.cts",
+            "package.json",
           })(nil, ctx)
         end,
       },
